@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popler - Distributed Prime Computing</title>
+    <!-- React Dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+    <style>
+        :root {
+            --popler-red: #FF0000;
+            --popler-gold: #FFD700;
+            --dark-red: #CC0000;
+            --light-gray: #f5f5f5;
+            --spacing-unit: 2rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        .header {
+            padding: var(--spacing-unit) 0;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: calc(var(--spacing-unit) * 3) 0;
+            text-align: center;
+            background: linear-gradient(135deg, white 0%, var(--light-gray) 100%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            background: linear-gradient(135deg, var(--popler-red) 0%, var(--dark-red) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            color: #666;
+        }
+
+        /* Network Visualization Container */
+        #network-visualization {
+            margin: 2rem auto;
+            max-width: 800px;
+            height: 400px;
+        }
+
+        /* Vision Section */
+        .vision {
+            padding: calc(var(--spacing-unit) * 2) 0;
+            background: white;
+        }
+
+        .vision-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-unit);
+            margin-top: var(--spacing-unit);
+        }
+
+        .vision-item {
+            padding: var(--spacing-unit);
+            background: var(--light-gray);
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .vision-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .vision-item h3 {
+            color: var(--popler-red);
+            margin-bottom: 1rem;
+        }
+
+        /* Newsletter Form */
+        .newsletter {
+            padding: calc(var(--spacing-unit) * 2) 0;
+            background: linear-gradient(135deg, var(--popler-red) 0%, var(--dark-red) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            max-width: 500px;
+            margin: 2rem auto;
+            display: flex;
+            gap: 1rem;
+        }
+
+        input[type="email"] {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: box-shadow 0.2s;
+        }
+
+        input[type="email"]:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--popler-gold);
+        }
+
+        button {
+            padding: 1rem 2rem;
+            background: var(--popler-gold);
+            border: none;
+            border-radius: 4px;
+            color: var(--dark-red);
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            background: #FFE44D;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .form-group {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <img src="/api/placeholder/60/60" alt="Popler Logo" class="logo">
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Join the Hunt for Mathematical History</h1>
+            <p>Be part of the first distributed computing project that rewards contributors with cryptocurrency while searching for a billion-digit prime number.</p>
+            <div id="network-visualization"></div>
+        </div>
+    </section>
+
+    <section class="vision">
+        <div class="container">
+            <div class="vision-grid">
+                <div class="vision-item">
+                    <h3>Revolutionary Goal</h3>
+                    <p>Join the race to discover the first billion-digit prime number and make mathematical history.</p>
+                </div>
+                <div class="vision-item">
+                    <h3>Earn While You Sleep</h3>
+                    <p>Your computer's idle time becomes valuable with Popler Tokens rewarded for contributions.</p>
+                </div>
+                <div class="vision-item">
+                    <h3>Simple to Join</h3>
+                    <p>No specialized hardware needed. Your regular computer can participate in this groundbreaking project.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <div class="container">
+            <h2>Be First to Know When We Launch</h2>
+            <p>Get notified when Popler goes live and start earning tokens for contributing to mathematical discovery.</p>
+            <form id="signup-form" class="form-group">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Join the Waitlist</button>
+            </form>
+        </div>
+    </section>
+
+    <script type="text/babel">
+        const AtomicNetwork = () => {
+            const [speed, setSpeed] = React.useState(0.5);
+            const [pulseSize, setPulseSize] = React.useState(40);
+            
+            const calculateSectorPosition = (index, time, totalNodes = 6) => {
+                const orbit = {
+                    radiusX: 200,
+                    radiusY: 80,
+                    centerX: 400,
+                    centerY: 200,
+                };
+                
+                const sectorCenter = (index * (2 * Math.PI) / totalNodes);
+                const oscillationRange = Math.PI / 6;
+                const oscillation = Math.sin(time / 2000 * speed) * oscillationRange;
+                const angle = sectorCenter + oscillation;
+                const distanceVariation = Math.sin(time / 1500) * 10;
+                
+                return {
+                    x: orbit.centerX + (orbit.radiusX + distanceVariation) * Math.cos(angle),
+                    y: orbit.centerY + (orbit.radiusY + distanceVariation) * Math.sin(angle),
+                    angle: angle
+                };
+            };
+
+            const [positions, setPositions] = React.useState([...Array(6)].map((_, i) => 
+                calculateSectorPosition(i, 0)
+            ));
+
+            React.useEffect(() => {
+                let animationFrame;
+                const animate = (timestamp) => {
+                    setPositions([...Array(6)].map((_, i) => 
+                        calculateSectorPosition(i, timestamp)
+                    ));
+                    animationFrame = requestAnimationFrame(animate);
+                };
+                animationFrame = requestAnimationFrame(animate);
+                return () => cancelAnimationFrame(animationFrame);
+            }, [speed]);
+
+            const handleClick = () => {
+                setSpeed(current => current === 0.5 ? 0.25 : 0.5);
+                setPulseSize(current => current === 40 ? 44 : 40);
+            };
+
+            return (
+                <svg 
+                    viewBox="0 0 800 400" 
+                    style={{width: '100%', height: '100%', cursor: 'pointer'}}
+                    onClick={handleClick}
+                >
+                    <defs>
+                        <linearGradient id="nodeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style={{stopColor: '#FF0000', stopOpacity: 1}} />
+                            <stop offset="100%" style={{stopColor: '#CC0000', stopOpacity: 1}} />
+                        </linearGradient>
+                        
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                            <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+
+                    {[...Array(6)].map((_, i) => {
+                        const angle = (i * 2 * Math.PI) / 6;
+                        return (
+                            <line
+                                key={`sector-${i}`}
+                                x1="400"
+                                y1="200"
+                                x2={400 + Math.cos(angle) * 200}
+                                y2={200 + Math.sin(angle) * 80}
+                                stroke="#FFD700"
+                                strokeWidth="1"
+                                opacity="0.1"
+                            />
+                        );
+                    })}
+
+                    <circle 
+                        cx="400" 
+                        cy="200" 
+                        r={pulseSize}
+                        fill="url(#nodeGradient)"
+                        filter="url(#glow)"
+                        style={{transition: 'all 0.3s'}}
+                    >
+                        <animate 
+                            attributeName="r" 
+                            values={`${pulseSize};${pulseSize + 2};${pulseSize}`}
+                            dur="2s" 
+                            repeatCount="indefinite"
+                        />
+                    </circle>
+
+                    {positions.map((pos, index) => (
+                        <g key={`node-${index}`} style={{transition: 'all 0.3s'}}>
+                            <line
+                                x1="400"
+                                y1="200"
+                                x2={pos.x}
+                                y2={pos.y}
+                                stroke="#FFD700"
+                                strokeWidth="2"
+                                strokeDasharray="4,4"
+                                opacity="0.6"
+                            >
+                                <animate
+                                    attributeName="stroke-dashoffset"
+                                    values="0;-8"
+                                    dur="1s"
+                                    repeatCount="indefinite"
+                                />
+                            </line>
+
+                            <circle r="3" fill="#FFD700">
+                                <animateMotion
+                                    path={`M${pos.x},${pos.y} L400,200`}
+                                    dur={`${2/speed}s`}
+                                    repeatCount="indefinite"
+                                />
+                            </circle>
+                            
+                            <g transform={`translate(${pos.x}, ${pos.y})`}>
+                                <circle
+                                    r="10"
+                                    fill="url(#nodeGradient)"
+                                    filter="url(#glow)"
+                                >
+                                    <animate
+                                        attributeName="r"
+                                        values="10;11;10"
+                                        dur="2s"
+                                        repeatCount="indefinite"
+                                        begin={`${index * 0.3}s`}
+                                    />
+                                </circle>
+                            </g>
+                        </g>
+                    ))}
+                </svg>
+            );
+        };
+
+        // Mount the React component
+        ReactDOM.render(
+            <AtomicNetwork />,
+            document.getElementById('network-visualization')
+        );
+
+        // Form submission handler
+        document.getElementById('signup-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            alert('Thanks for signing up! We\'ll notify you when Popler launches.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
