@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Popler</title>
+    <style>
+        /* Base styles */
+        :root {
+            --popler-red: #FF0000;
+            --popler-gold: #FFD700;
+            --background-color: #ffffff;
+            --text-color: #1F2937;
+            --hover-red: #FF3333;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background: var(--background-color);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: var(--background-color);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            height: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--popler-red);
+        }
+
+        .nav-links a.active {
+            color: var(--popler-red);
+        }
+
+        /* Hero section */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--popler-red) 0%, var(--hover-red) 100%);
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--popler-gold);
+        }
+
+        /* Process Flow */
+        .process-flow {
+            max-width: 800px;
+            margin: 4rem auto;
+            position: relative;
+            padding: 2rem;
+        }
+
+        .process-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--popler-red);
+            transform: translateX(-50%);
+        }
+
+        .process-steps {
+            position: relative;
+            z-index: 1;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .step-circle {
+            width: 60px;
+            height: 60px;
+            background: var(--popler-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 2rem;
+            flex-shrink: 0;
+            border: 3px solid var(--popler-gold);
+            transition: transform 0.3s;
+        }
+
+        .step:hover .step-circle {
+            transform: scale(1.1);
+        }
+
+        .step-circle svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--popler-gold);
+        }
+
+        .step-content {
+            flex: 1;
+            padding: 1rem;
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--popler-gold);
+        }
+
+        .step-title {
+            color: var(--popler-red);
+            margin: 0 0 0.5rem 0;
+        }
+
+        /* Jackpot simulator */
+        .jackpot-simulator {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--popler-red) 0%, var(--hover-red) 100%);
+            color: white;
+            margin: 2rem 0;
+        }
+
+        #jackpotValue {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--popler-gold);
+            margin: 1rem 0;
+        }
+
+        /* Token mechanics */
+        .token-mechanics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .token-feature {
+            padding: 2rem;
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--popler-gold);
+            transition: transform 0.2s;
+        }
+
+        .token-feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .token-feature h3 {
+            color: var(--popler-red);
+            margin-top: 0;
+        }
+
+        .section {
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--popler-red);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <img src="/images/popler-logo.svg" alt="Popler Logo" class="logo">
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="how-it-works.html">How It Works</a>
+            <a href="docs.html">Docs</a>
+            <a href="partners.html">Partners</a>
+        </div>
+    </nav>
+
+<section class="hero">
+        <h1>About Popler</h1>
+        <p>Join the revolution in distributed computing and prime number discovery</p>
+    </section>
+
+    <section class="process-flow">
+        <div class="process-line"></div>
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-circle">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" />
+                        <path d="M19 12C19 13.8565 18.2625 15.637 16.9497 16.9497C15.637 18.2625 13.8565 19 12 19C10.1435 19 8.36301 18.2625 7.05025 16.9497C5.7375 15.637 5 13.8565 5 12C5 10.1435 5.7375 8.36301 7.05025 7.05025C8.36301 5.7375 10.1435 5 12 5C13.8565 5 15.637 5.7375 16.9497 7.05025C18.2625 8.36301 19 10.1435 19 12Z" />
+                    </svg>
+                </div>
+                <div class="step-content">
+                    <h3 class="step-title">Connect</h3>
+                    <p>Create an account and connect your ETH wallet. No downloads needed - everything runs directly in your web browser.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-circle">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" />
+                        <path d="M12 7V12L15 15" />
+                    </svg>
+                </div>
+                <div class="step-content">
+                    <h3 class="step-title">Contribute</h3>
+                    <p>Your device works on prime number calculations in the background. More powerful devices complete tasks faster.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-circle">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                    </svg>
+                </div>
+                <div class="step-content">
+                    <h3 class="step-title">Earn</h3>
+                    <p>Earn Popler Tokens for completed tasks and win jackpots when prime numbers are discovered.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="jackpot-simulator">
+        <h2>Current Simulated Jackpot</h2>
+        <div id="jackpotValue">Loading...</div>
+        <p>The jackpot grows with each completed task until a prime is discovered!</p>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Token Mechanics</h2>
+        <div class="token-mechanics">
+            <div class="token-feature">
+                <h3>Task Priority</h3>
+                <p>Each Popler Token in your wallet gives you an additional entry in the task lottery, increasing your chances of receiving valuable computations.</p>
+            </div>
+            <div class="token-feature">
+                <h3>Jackpot Rewards</h3>
+                <p>Discover a prime number and win the accumulated jackpot. Discover a Mersenne prime and become a legend!</p>
+            </div>
+            <div class="token-feature">
+                <h3>Regular Rewards</h3>
+                <p>Earn tokens steadily by completing computational tasks, regardless of prime number discoveries.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Simulated jackpot value update
+        function updateJackpot() {
+            const jackpotElement = document.getElementById('jackpotValue');
+			if (!window.currentJackpot) {
+				window.currentJackpot = Math.random() * 999 + 1;
+			}
+			const randomIncrease = Math.random() * (1 - 0.00000001) + 0.00000001;
+			window.currentJackpot += randomIncrease;
+            jackpotElement.textContent = `${window.currentJackpot.toLocaleString(undefined, {minimumFractionDigits: 8,maximumFractionDigits: 8})} $PPLR`;
+        }
+
+        // Update jackpot every 5 seconds
+        updateJackpot();
+        setInterval(updateJackpot, 5000);
+    </script>
+</body>
+</html>
